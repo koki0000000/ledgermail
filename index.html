@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ledgermail — Budgeting without giving your bank your password</title>
+<meta name="description" content="Your card already emails you every charge. Ledgermail turns those emails into a categorized Notion ledger and a weekly report — no bank login required.">
+<meta property="og:title" content="Ledgermail — Budgeting without giving your bank your password">
+<meta property="og:description" content="Your card already emails you every charge. Ledgermail turns those emails into a categorized Notion ledger and a weekly report — no bank login required.">
+<meta property="og:image" content="https://koki0000000.github.io/ledgermail/poster.jpg">
+<meta property="og:type" content="website">
+<!-- 正本はこのファイル（company repo）。デプロイ先= github.com/koki0000000/ledgermail（Pages）。公開済み 2026-07-12 L3決裁 -->
+<style>
+  :root{
+    --ink:#182420; --ink2:#54615B; --line:#E2E7E3; --bg:#FFFFFF; --bg2:#F5F8F6;
+    --green:#178A66; --green-dark:#0E5C44; --mint:#3DBF93;
+    --stage:#14181B; --stage-ink:#E8EDEA;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  a{color:var(--green)}
+
+  /* hero */
+  .hero{background:radial-gradient(ellipse at 50% 0%, #1C2226 0%, var(--stage) 70%);color:var(--stage-ink);
+    padding:72px 0 64px;text-align:center}
+  .brand{font-weight:800;font-size:22px;letter-spacing:-0.01em;color:#fff;margin-bottom:48px}
+  .brand span{color:var(--mint)}
+  h1{font-size:clamp(34px,5.5vw,56px);line-height:1.15;margin:0 auto 18px;font-weight:800;letter-spacing:-0.02em;
+    max-width:17em;text-wrap:balance;color:#fff}
+  .sub{color:#A9B4AE;max-width:38em;margin:0 auto 36px;font-size:19px}
+  .cta{display:inline-block;background:var(--mint);color:#08130E;font-weight:800;font-size:19px;
+    border-radius:10px;padding:15px 36px;text-decoration:none}
+  .cta:hover{filter:brightness(1.07)}
+  .video{max-width:760px;margin:44px auto 0;aspect-ratio:16/9;background:#0D1113;border:1px solid #2A3236;
+    border-radius:14px;display:flex;align-items:center;justify-content:center;color:#6B7770;font-size:15px}
+  .scope-pill{display:inline-block;margin-top:22px;border:1px solid #2F3A36;border-radius:999px;
+    padding:7px 18px;color:#9FD9C4;font-size:15px}
+
+  section{padding:72px 0}
+  section.alt{background:var(--bg2)}
+  h2{font-size:clamp(24px,3.4vw,32px);margin:0 0 10px;letter-spacing:-0.01em;text-wrap:balance}
+  .lede{color:var(--ink2);margin:0 0 40px;max-width:40em}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;counter-reset:step}
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 16px;font-size:14.5px}
+  .step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;margin-bottom:12px}
+  .step b{display:block;margin-bottom:5px;font-size:15px}
+  .step .d{color:var(--ink2)}
+  .caption-line{color:var(--ink2);font-size:15px;margin-top:20px;font-style:italic}
+
+  /* scope */
+  .scope-box{background:var(--bg);border:2px solid var(--green);border-radius:14px;padding:26px 30px}
+  .scope-box blockquote{margin:0 0 16px;font-size:20px;font-weight:700;color:var(--green-dark)}
+  .scope-box ul{margin:0 0 16px;padding-left:22px;color:var(--ink)}
+  .scope-box li{margin:7px 0}
+  .vs{color:var(--ink2);font-size:15px;border-top:1px solid var(--line);padding-top:16px}
+
+  /* waitlist */
+  .form-shell{max-width:560px;margin:0 auto;background:var(--bg);border:1px solid var(--line);border-radius:14px;
+    padding:30px 32px;text-align:center}
+  .form-placeholder{border:2px dashed var(--line);border-radius:10px;padding:40px 20px;color:var(--ink2);font-size:15px;margin:18px 0}
+  .reassure{color:var(--ink2);font-size:14px}
+
+  footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--ink2);font-size:13.5px;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="brand">Ledger<span>mail</span></div>
+    <h1>Budget without handing over your bank password.</h1>
+    <p class="sub">Every card charge already lands in your inbox as a notification email. Ledgermail reads those, sorts them into Notion, and sends you a weekly report — with zero bank credentials ever shared.</p>
+    <a class="cta" href="#waitlist">Join the Waitlist</a>
+    <div class="video">
+      <video controls playsinline preload="metadata" poster="poster.jpg" style="width:100%;height:100%;border-radius:14px" title="Ledgermail demo (61s)">
+        <source src="ledgermail-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="scope-pill">No bank connection. It reads the notification emails your card company already sends.</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>From notification email to weekly report — no typing required.</h2>
+    <p class="lede">Five steps, none of them yours.</p>
+    <div class="steps">
+      <div class="step"><b>Your card sends a charge email</b><span class="d">the one you already get and ignore</span></div>
+      <div class="step"><b>Ledgermail reads it and posts it to Discord</b><span class="d">store, amount, guessed category</span></div>
+      <div class="step"><b>One tap to confirm or fix the category</b><span class="d">only for the ones it's unsure about</span></div>
+      <div class="step"><b>It lands in your own Notion database</b><span class="d">you own the data, always</span></div>
+      <div class="step"><b>Every Monday, a weekly report</b><span class="d">spending by category, budget pace</span></div>
+    </div>
+    <p class="caption-line">Recognized charges are auto-captured. New or unclear ones take one tap.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>What Ledgermail does — and doesn't — touch</h2>
+    <p class="lede">The honest scope, up front.</p>
+    <div class="scope-box">
+      <blockquote>No bank connection. It reads the notification emails your card company already sends.</blockquote>
+      <ul>
+        <li>We never ask for your online banking username or password</li>
+        <li>We never connect to Plaid or any bank-aggregation service</li>
+        <li>Your ledger lives in a Notion database you control — export or delete anytime</li>
+        <li>Today it supports a limited set of card issuers — the ones whose notification emails we've built parsers for. Don't see yours? Tell us on the waitlist form; it directly drives what we add next.</li>
+      </ul>
+      <p class="vs"><i>vs. YNAB / Copilot Money / Lunch Money / Monarch:</i> those ask you to link your bank or enter transactions by hand. Ledgermail asks for neither — it reads the emails you're already getting.</p>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist">
+  <div class="wrap">
+    <div class="form-shell">
+      <h2>Get early access</h2>
+      <p class="lede" style="margin-bottom:6px">We're testing this with a small group before opening it up. Tell us a bit about your setup and we'll reach out when it's ready.</p>
+      <iframe data-tally-src="https://tally.so/embed/2EyKeg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0" title="Get early access to Ledgermail"></iframe>
+      <script async src="https://tally.so/widgets/embed.js"></script>
+      <p class="reassure">No spam. No bank login, ever. You'll hear from us only when there's something to show you.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Ledgermail is an early-stage project. Pricing and features shown here are being validated — nothing is charged yet.<br>Demo UI shown with sample data.</div>
+</footer>
+
+</body>
+</html>
