@@ -78,7 +78,7 @@
     <div class="brand">Ledger<span>mail</span></div>
     <h1>Budget without handing over your bank password.</h1>
     <p class="sub">Every card charge already lands in your inbox as a notification email. Ledgermail reads those, sorts them into Notion, and sends you a weekly report — with zero bank credentials ever shared.</p>
-    <a class="cta" href="#waitlist">Join the Waitlist</a>
+    <a class="cta" href="#code">Read the code</a>
     <div class="video">
       <video controls playsinline preload="metadata" poster="poster.jpg" style="width:100%;height:100%;border-radius:14px" title="Ledgermail demo (61s)">
         <source src="ledgermail-demo.mp4" type="video/mp4">
@@ -113,27 +113,26 @@
         <li>We never ask for your online banking username or password</li>
         <li>We never connect to Plaid or any bank-aggregation service</li>
         <li>Your ledger lives in a Notion database you control — export or delete anytime</li>
-        <li>Today it supports a limited set of card issuers — the ones whose notification emails we've built parsers for. Don't see yours? Tell us on the waitlist form; it directly drives what we add next.</li>
+        <li>Today it supports a limited set of card issuers — the ones whose notification emails we've built parsers for. Don't see yours? The parsers are in the repository below — they're the part you'd change.</li>
       </ul>
       <p class="vs"><i>vs. YNAB / Copilot Money / Lunch Money / Monarch:</i> those ask you to link your bank or enter transactions by hand. Ledgermail asks for neither — it reads the emails you're already getting.</p>
     </div>
   </div>
 </section>
 
-<section id="waitlist">
+<section id="code">
   <div class="wrap">
     <div class="form-shell">
-      <h2>Get early access</h2>
-      <p class="lede" style="margin-bottom:6px">We're testing this with a small group before opening it up. Tell us a bit about your setup and we'll reach out when it's ready.</p>
-      <iframe data-tally-src="https://tally.so/embed/2EyKeg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0" title="Get early access to Ledgermail"></iframe>
-      <script async src="https://tally.so/widgets/embed.js"></script>
-      <p class="reassure">No spam. No bank login, ever. You'll hear from us only when there's something to show you.</p>
+      <h2>The working part is open source</h2>
+      <p class="lede" style="margin-bottom:6px">Ledgermail was an attempt to turn this into a product. That attempt is on hold — but the piece that does the actual work is published, and it runs today on Google Apps Script and Notion. No waitlist, no signup, no bank connection.</p>
+      <p style="margin:18px 0"><a class="cta" href="https://github.com/koki0000000/ledger-starter">ledger-starter on GitHub</a></p>
+      <p class="reassure">Setup takes about 30 minutes, copy and paste only. Everything it cannot do is listed before you start.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">Ledgermail is an early-stage project. Pricing and features shown here are being validated — nothing is charged yet.<br>Demo UI shown with sample data.</div>
+  <div class="wrap">Ledgermail was an experiment in productising a personal tool. The product is on hold; the code that does the work is open source.<br>Demo UI shown with sample data.</div>
 </footer>
 
 </body>
