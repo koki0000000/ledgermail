@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ledgermail — Budgeting without giving your bank your password</title>
-<meta name="description" content="Your card already emails you every charge. Ledgermail turns those emails into a categorized Notion ledger — no bank login required.">
-<meta property="og:title" content="Ledgermail — Budgeting without giving your bank your password">
-<meta property="og:description" content="Your card already emails you every charge. Ledgermail turns those emails into a categorized Notion ledger — no bank login required.">
+<title>Ledgermail — card charges into Notion, from the emails you already get</title>
+<meta name="description" content="Reads the charge notification emails your card company sends and files each one into a Notion database. No bank login.">
+<meta property="og:title" content="Ledgermail — card charges into Notion, from the emails you already get">
+<meta property="og:description" content="Reads the charge notification emails your card company sends and files each one into a Notion database. No bank login.">
 <meta property="og:image" content="https://koki0000000.github.io/ledgermail/poster.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📬</text></svg>">
@@ -35,8 +35,6 @@
   .cta:hover{filter:brightness(1.07)}
   .video{max-width:760px;margin:44px auto 0;aspect-ratio:16/9;background:#0D1113;border:1px solid #2A3236;
     border-radius:14px;display:flex;align-items:center;justify-content:center;color:#6B7770;font-size:15px}
-  .scope-pill{display:inline-block;margin-top:22px;border:1px solid #2F3A36;border-radius:999px;
-    padding:7px 18px;color:#9FD9C4;font-size:15px}
 
   section{padding:72px 0}
   section.alt{background:var(--bg2)}
@@ -52,19 +50,16 @@
     width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;margin-bottom:12px}
   .step b{display:block;margin-bottom:5px;font-size:15px}
   .step .d{color:var(--ink2)}
-  .caption-line{color:var(--ink2);font-size:15px;margin-top:20px;font-style:italic}
+  .caption-line{color:var(--ink2);font-size:15px;margin-top:20px}
 
   /* scope */
   .scope-box{background:var(--bg);border:2px solid var(--green);border-radius:14px;padding:26px 30px}
-  .scope-box blockquote{margin:0 0 16px;font-size:20px;font-weight:700;color:var(--green-dark)}
-  .scope-box ul{margin:0 0 16px;padding-left:22px;color:var(--ink)}
+  .scope-box ul{margin:0;padding-left:22px;color:var(--ink)}
   .scope-box li{margin:7px 0}
   .vs{color:var(--ink2);font-size:15px;border-top:1px solid var(--line);padding-top:16px}
 
-  /* waitlist */
   .form-shell{max-width:560px;margin:0 auto;background:var(--bg);border:1px solid var(--line);border-radius:14px;
     padding:30px 32px;text-align:center}
-  .form-placeholder{border:2px dashed var(--line);border-radius:10px;padding:40px 20px;color:var(--ink2);font-size:15px;margin:18px 0}
   .reassure{color:var(--ink2);font-size:14px}
 
   footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--ink2);font-size:13.5px;text-align:center}
@@ -75,45 +70,41 @@
 <div class="hero">
   <div class="wrap">
     <div class="brand">Ledger<span>mail</span></div>
-    <h1>Budget without handing over your bank password.</h1>
-    <p class="sub">Every card charge already lands in your inbox as a notification email. Ledgermail reads those, sorts them into Notion — with zero bank credentials ever shared.</p>
+    <h1>Card charges into Notion, from the emails you already get.</h1>
+    <p class="sub">Your card company emails you every charge. Ledgermail reads those emails and files each one into a Notion database you own. It never logs in to your bank.</p>
     <a class="cta" href="#code">Read the code</a>
     <div class="video">
-      <video controls playsinline preload="metadata" poster="poster.jpg" style="width:100%;height:100%;border-radius:14px" title="Ledgermail demo (61s)">
+      <video controls playsinline preload="metadata" poster="poster.jpg" style="width:100%;height:100%;border-radius:14px" title="Ledgermail demo (71s)">
         <source src="ledgermail-demo.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="scope-pill">No bank connection. It reads the notification emails your card company already sends.</div>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <h2>From notification email to a filed ledger line — no typing required.</h2>
-    <p class="lede">Four steps, none of them yours.</p>
+    <h2>What happens</h2>
     <div class="steps">
-      <div class="step"><b>Your card sends a charge email</b><span class="d">the one you already get and ignore</span></div>
-      <div class="step"><b>Ledgermail reads it and files it in your own Notion database</b><span class="d">recorded right away, with its guessed category</span></div>
-      <div class="step"><b>The same line shows up in Discord</b><span class="d">store, amount, guessed category</span></div>
-      <div class="step"><b>One tap to fix the category</b><span class="d">when the guess is wrong</span></div>
+      <div class="step"><b>Your card sends a charge email</b><span class="d">as it does today</span></div>
+      <div class="step"><b>Ledgermail files it in Notion</b><span class="d">date, store, amount, and a guessed category</span></div>
+      <div class="step"><b>The line appears in Discord</b><span class="d">store, amount, category</span></div>
+      <div class="step"><b>Fix the category from the message</b><span class="d">if the guess is wrong</span></div>
     </div>
-    <p class="caption-line">Charges are captured on their own; correcting the category takes one tap.</p>
   </div>
 </section>
 
 <section class="alt">
   <div class="wrap">
-    <h2>What Ledgermail does — and doesn't — touch</h2>
-    <p class="lede">The honest scope, up front.</p>
+    <h2>Scope</h2>
     <div class="scope-box">
-      <blockquote>No bank connection. It reads the notification emails your card company already sends.</blockquote>
       <ul>
-        <li>We never ask for your online banking username or password</li>
-        <li>We never connect to Plaid or any bank-aggregation service</li>
-        <li>Your ledger lives in a Notion database you control — export or delete anytime</li>
-        <li>Today it supports a limited set of card issuers — the ones whose notification emails we've built parsers for. Don't see yours? The parsers are in the repository below — they're the part you'd change.</li>
+        <li>No bank login, no aggregation service. It reads notification emails only.</li>
+        <li>The ledger is a Notion database you control. Export or delete it anytime.</li>
+        <li>Supports the card issuers it has parsers for: Sumitomo Mitsui, Rakuten Card, View Card. Parsers live in the repository and are the part you would change.</li>
+        <li>Limitations (foreign currency, refunds, same-day same-amount charges) are listed in the setup guide. The guide is in Japanese.</li>
+        <li>Verified end to end with Sumitomo Mitsui only. Rakuten and View Card matching, and Discord posting with a real bot token, are not yet confirmed on the shipped code.</li>
+        <li>The demo video was made for a product pitch. It shows a weekly report, a "learned from your tap" badge, a Split button, and US dollar amounts. None of these are in the published code, which reads Japanese-yen notifications from the three issuers above. The video also ends with a "Join the waitlist" button. There is no waitlist; the product is on hold.</li>
       </ul>
-      <p class="vs"><i>vs. YNAB / Copilot Money / Lunch Money / Monarch:</i> those ask you to link your bank or enter transactions by hand. Ledgermail asks for neither — it reads the emails you're already getting.</p>
     </div>
   </div>
 </section>
@@ -121,16 +112,32 @@
 <section id="code">
   <div class="wrap">
     <div class="form-shell">
-      <h2>The working part is open source</h2>
-      <p class="lede" style="margin-bottom:6px">Ledgermail was an attempt to turn this into a product. That attempt is on hold — but the piece that does the actual work is published, and it runs today on Google Apps Script and Notion. No waitlist, no signup, no bank connection.</p>
+      <h2>The code is public</h2>
+      <p class="lede" style="margin-bottom:6px">The part that does the work is published as ledger-starter and runs on Google Apps Script and Notion. The Ledgermail product itself is on hold.</p>
       <p style="margin:18px 0"><a class="cta" href="https://github.com/koki0000000/ledger-starter">ledger-starter on GitHub</a></p>
-      <p class="reassure">Setup takes about 30 minutes for the ledger itself, 45–55 with the Discord tap — copy and paste only. Everything it cannot do is listed before you start.</p>
+      <p class="reassure">Setup: about 30 minutes for the ledger, 45 to 55 minutes with the Discord menu. Copy and paste only.<br>The setup guide is written in Japanese.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" lang="ja">
+  <div class="wrap">
+    <h2>日本語</h2>
+    <div class="scope-box">
+      <ul>
+        <li>カード会社の利用通知メールを読み、自分の Notion データベースに日付・店名・金額・分類で記帳する。銀行にはログインしない。</li>
+        <li>記帳した行は Discord にも出る。分類が違えばメッセージから選び直す。</li>
+        <li>実機で通したのは三井住友だけ。楽天・ビューカードの突き合わせと、本物の Bot トークンでの Discord 投稿は未確認。</li>
+        <li>対応は三井住友・楽天カード・ビューカードの3社。取りこぼす条件（外貨・取消と返品・同日同額の2回目など）は設定手順書に列挙している。</li>
+        <li>動画は製品化を試みたときのもの。週次レポート・学習バッジ・Split ボタン・米ドル表記・末尾の「Join the waitlist」は公開コードには無く、待機リストも無い。</li>
+        <li>コードは <a href="https://github.com/koki0000000/ledger-starter">ledger-starter</a>。設定は記帳だけなら約30分、Discord のメニューまで入れて45〜55分。手順書は日本語。</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">Ledgermail was an experiment in productising a personal tool. The product is on hold; the code that does the work is open source.<br>Demo UI shown with sample data.</div>
+  <div class="wrap">Demo UI shown with sample data. Features shown only in the video are listed under Scope.</div>
 </footer>
 
 </body>
